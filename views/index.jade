@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h1= title
+ 
+  p Bienvenido a Agoesperanza Veterinaria
+  form(name='login', method='POST')
+    .contenedor
+      .centrar Un texto o lo que sea
+      .input
+        span.label Usuario
+        input(type='text', name='usuario', required='true')
+        span.label Contraseña
+        input(type='password', name='password', required='true')
+      p
+      input(type='submit', value='Entrar')

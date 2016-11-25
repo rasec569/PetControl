@@ -1,0 +1,22 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+
+.centrar {
+position: absolute;
+left: 50%;
+top: 50%;
+transform: translate(-50%, -50%);
+-webkit-transform: translate(-50%, -50%);
+}
+.contenedor{
+position: relative;
+width: 600px;
+height:400px;
+}
