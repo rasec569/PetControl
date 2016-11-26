@@ -1,19 +1,37 @@
-h1 MENU
+extends layout
 
-#body
-  form(method='get')
-    | Nombre: 
-    input(type='text', name='nombre') 
-    br
-    | Apellidos: 
-    input(type='text', name='apellidos')
-    br
-    | Dirección: 
-    input(type='text', name='direccion')
-    br
-    | Correo electrónico: 
-    input(type='text', name='correo')
-    br
-    | Teléfono: 
-    input(type='text', name='telefono')
-    br
+block content
+  h1 MENU
+
+  body
+    form(id='create-form')
+      | Nombre: 
+      input(type='text', name='nombre', id="nombre") 
+      br
+      | Apellidos: 
+      input(type='text', name='apellidos', id="apellido")
+      br
+      | Dirección: 
+      input(type='text', name='direccion', id="direccion")
+      br
+      | Correo electrónico: 
+      input(type='text', name='correo', id="correo")
+      br
+      | Teléfono: 
+      input(type='text', name='telefono', id="telefono")
+      br
+
+      button(value="Crear") Crear
+
+      button#get-button READ/GET Products
+
+      table
+        thead
+          tr
+            th nombre
+            th apellido
+            th direccion
+            th correo
+            th telefono
+        tbody
+
