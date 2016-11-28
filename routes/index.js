@@ -9,7 +9,7 @@ var connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password: 'root',
-  database: 'persona'
+  database: 'agrosolidaria'
 });
 
 connection.connect();
@@ -55,7 +55,7 @@ router.get('/traer', function (req, res) {
 router.post('/', function (req, res, next) {
   console.log('Lo que hay', req.params);
   console.log('body', req.body);
-  connection.query('Select * from login where User = "' + req.body.usuario + '" and Password ="' + req.body.password + '";', function (err, rows, fields) {
+  connection.query('Select * from login where User = "' + req.login.usuario + '" and Password ="' + req.login.password + '";', function (err, rows, fields) {
     if (!err) {
       res.render('Menu', {
         title: 'Exito'
