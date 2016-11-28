@@ -4,27 +4,27 @@ $(function () {
     // crear
     $('#create-form').on('submit', function (event) {
         event.preventDefault();
+        var identificacion = $('#identificacion').val();
         var nombre = $('#nombre').val();
         var apellido = $('#apellido').val();
-        var direccion = $('#direccion').val();
-        var correo = $('#correo').val();
         var telefono = $('#telefono').val();
+        var rol = $('#rol').val();
 
         var data = {
-            nombre: nombre,
-            apellido: apellido,
-            direccion: direccion,
-            correo: correo,
-            telefono: telefono
+            identificacion: Identificacion,
+            nombre: Nombre,
+            apellido: Apellido,
+            telefono: Telefono,
+            rol: Fk_Rol
         }
 
-        console.log(data);
+        console.log('Hola' + data);
 
         $.ajax({
             url: '/registrar',
             method: 'POST',
             contentType: 'application/json',
-            data: JSON.stringify({ data_registrar: data }),
+            data: JSON.stringify({ data: data_registrar}),
             success: function (response) {
                 console.log(response);
                 leer();
@@ -48,12 +48,14 @@ function leer (){
                 response.forEach(function(data) {
                     tbodyEl.append('\
                         <tr>\
-                            <td class="id">' + data.Id + '</td>\
+                            <td class="id">' + data.Identificacion + '</td>\
                             <td><input type="text" class="name" value="' + data.Nombre + '"></td>\
                             <td><input type="text" class="name" value="' + data.Apellido + '"></td>\
+                            <td><input type="text" class="name" value="' + data.Telefono + '"></td>\
+                            <td>'+ data.Fk_Rol + '</td>\
                             <td>\
-                                <button class="update-button">UPDATE/PUT</button>\
-                                <button class="delete-button">DELETE</button>\
+                                <button class="update-button">Actualizar</button>\
+                                <button class="delete-button">Eliminar</button>\
                             </td>\
                         </tr>\
                     ');

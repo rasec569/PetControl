@@ -1,37 +1,49 @@
-extends layout
+doctype html
+html
+  head
+    title= title
+    
+    link(rel='stylesheet', href='/stylesheets/style.css')
 
-block content
+    script(src='/Javascript/jquery.js')
+    script(src='/Javascript/botones.js')
+    script(src='/Javascript/index.js')
+    
   h1 MENU
+    h2 Registrar Persona
 
-  body
-    form(id='create-form')
-      | Nombre: 
-      input(type='text', name='nombre', id="nombre") 
-      br
-      | Apellidos: 
-      input(type='text', name='apellidos', id="apellido")
-      br
-      | Dirección: 
-      input(type='text', name='direccion', id="direccion")
-      br
-      | Correo electrónico: 
-      input(type='text', name='correo', id="correo")
-      br
-      | Teléfono: 
-      input(type='text', name='telefono', id="telefono")
-      br
+    p 
 
-      button(value="Crear") Crear
+      body
+    
+          form(id='create-form')
+            | Identificacion: 
+            input(type='number', name='identificacion', id="identificacion") 
+            br
+            | Nombre: 
+            input(type='text', name='nombre', id="nombre") 
+            br
+            | Apellidos: 
+            input(type='text', name='apellido', id="apellido")
+            br
+            | Teléfono: 
+            input(type='text', name='telefono', id="telefono")
+            br
+            | Rol: 
+            input(type='number', name='rol', id="rol") 
+            p
+            br
+            button(value="Crear") Crear
+            br
+            button#get-button ConsultarToDo
 
-      button#get-button READ/GET Products
-
-      table
-        thead
-          tr
-            th nombre
-            th apellido
-            th direccion
-            th correo
-            th telefono
-        tbody
+            table
+              thead
+                tr
+                  th Identificacion: 
+                  th Nombre:
+                  th Apellido:
+                  th Telefono:
+                  th Rol:
+              tbody
 

@@ -22,9 +22,9 @@ router.get('/', function (req, res, next) {
 
 router.post('/registrar', function (req, res) {
   var data = req.body.data_registrar;
-  console.log(data);
-  connection.query('insert into usuario(nombre, apellido, direccion, correo, telefono) ' +
-    ' values ( "' + data.nombre + '", "' + data.apellido + '", "' + data.direccion + '", "' + data.correo + '", ' + data.telefono + ');', function (err, rows, fields) {
+  console.log('reg' + data);
+  connection.query('insert into persona(identificacion, nombre, apellido, telefono, fk_rol) ' +
+    ' values ( ' + data.identificacion +' ","'+ data.nombre + '", "' + data.apellido + '", "' + data.telefono + '", ' + data.rol + ');', function (err, rows, fields) {
       if (!err) {
         res.send('Se registro la persona!');
       } else {
@@ -40,7 +40,7 @@ router.get('/traer', function (req, res) {
 
   console.log('Lo que hay', req.params);
   console.log('body', req.body);
-  connection.query('Select * from usuario', function (err, rows, fields) {
+  connection.query('Select * from persona', function (err, rows, fields) {
     if (!err) {
       res.json(rows);
     } else {
@@ -55,7 +55,7 @@ router.get('/traer', function (req, res) {
 router.post('/', function (req, res, next) {
   console.log('Lo que hay', req.params);
   console.log('body', req.body);
-  connection.query('Select * from login where User = "' + req.login.usuario + '" and Password ="' + req.login.password + '";', function (err, rows, fields) {
+  connection.query('Select * from login where User = ' + req.body.usuario + ' and Password =' + req.body.password + ';', function (err, rows, fields) {
     if (!err) {
       res.render('Menu', {
         title: 'Exito'
